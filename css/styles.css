@@ -861,13 +861,46 @@ body {
 
 .modal-form-checbox {
   display: flex;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }
 
 .modal-form-checbox-label {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 1.715;
   letter-spacing: 0.03em;
+  cursor: pointer;
   color: var(--secondary-text-color);
+}
+
+.modal-form-checbox-label::before {
+  display: block;
+  content: '';
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  border: 1px solid var(--primary-text-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.modal-form-checbox:checked + .modal-form-checbox-label::before {
+  background-image: url('../images/sprite/icon-check.svg');
+  background-size: 15px 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--accent-color);
+  border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-checbox:focus + .modal-form-checbox-label::before {
+  border: 1px solid var(--accent-color);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-label-link {
